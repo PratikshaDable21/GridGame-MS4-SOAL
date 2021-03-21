@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <canvas id = "canvas"></canvas>
+
+    <script src="field.js"></script>
+    <script>
+        const CELLS_COUNT = 4
+        
+        let canvas = document.getElementById("canvas")    
+        let field = new Field(canvas, CELLS_COUNT)
+        
+        field.Draw()
+    </script>
+</body>
+</html>
