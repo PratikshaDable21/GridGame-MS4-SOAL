@@ -1,12 +1,12 @@
 function Field(canvas, n = 4) {
-    this.canvas = canvas 
-    this.n = n 
+    this.canvas = canvas // remember the picture
+    this.n = n // remember the number of cells on the field
     this.ctx = this.canvas.getContext("2d")
 
-    this.cellSize = 100 
-    this.size = this.cellSize * this.n 
-    this.paddingTop = 50 
-    this.paddingBottom = 10
+    this.cellSize = 100  // cage size
+    this.size = this.cellSize * this.n  // field size
+    this.paddingTop = 50 //number from above
+    this.paddingBottom = 10 // bottom Margin
     this.paddingHor = 10
     
     this.canvas.width = this.size + this.paddingHor * 2 
