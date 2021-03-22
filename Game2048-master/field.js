@@ -75,7 +75,7 @@ Field.prototype.DrawCell = function(i, j) {
     this.ctx.fillText(1 << value, x + this.cellSize / 2, y + this.cellSize / 2)
 }
 
-
+ // rendering cells
 Field.prototype.DrawCells = function() {
     this.ctx.font = this.cellSize / 2.5 +"px Arial"
 
@@ -84,7 +84,7 @@ Field.prototype.DrawCells = function() {
             this.DrawCell(i, j)
 }
 
-
+// drawing a field
 Field.prototype.Draw = function() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
@@ -103,6 +103,7 @@ Field.prototype.Draw = function() {
     this.DrawCells()
 }
 
+// shift values ​​in one direction
 Field.prototype.Shift = function(points) {
     let j = 0;
     let wasShift = true
@@ -110,7 +111,7 @@ Field.prototype.Shift = function(points) {
 
     for (let i = 0; i < points.length; i++) {
         if (this.cells[points[i].i][points[i].j] == 0)
-            continue 
+            continue  // ignore empty cells
 
         this.cells[points[j].i][points[j].j] = this.cells[points[i].i][points[i].j]
 
@@ -133,7 +134,7 @@ Field.prototype.Shift = function(points) {
     return result
 }
 
-
+ // checking the possibility of shifting values ​​in one direction
 Field.prototype.CanShift = function(points) {
     if (this.cells[points[0].i][points[0].j] == 0)
         return true
@@ -149,6 +150,7 @@ Field.prototype.CanShift = function(points) {
     return false
 }
 
+// checking the ability to move somewhere
 Field.prototype.IsGameOver = function() {
     for (let i = 0; i < this.n; i++) {
         let left = []
@@ -173,7 +175,7 @@ Field.prototype.IsGameOver = function() {
     return true
 }
 
-
+// left shift
 Field.prototype.ShiftLeft = function() {
     let result = false
 
@@ -189,7 +191,7 @@ Field.prototype.ShiftLeft = function() {
     return result
 }
 
-
+ // shift to the right
 Field.prototype.ShiftRight = function() {
     let result = false
 
@@ -221,6 +223,7 @@ Field.prototype.ShiftUp = function() {
     return result
 }
 
+// shift down
 Field.prototype.ShiftDown = function() {
     let result = false
 
@@ -236,6 +239,7 @@ Field.prototype.ShiftDown = function() {
     return result
 }
 
+// keypress handling
 Field.prototype.KeyDown = function(e) {
     let result = false
 
