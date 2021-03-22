@@ -48,18 +48,18 @@ Field.prototype.AddCell = function(value) {
 
     for (let i = 0; i < this.n; i++)
         for (let j = 0; j < this.n; j++)
-            if (this.cells[i][j] == 0)
-                availablePoints.push({ i: i, j: j })
+            if (this.cells[i][j] == 0) // if the cell is empty
+                availablePoints.push({ i: i, j: j }) //add it
 
     if (availablePoints.length == 0)
-        return false
+        return false // item cannot be added
 
     let point = availablePoints[Math.floor(Math.random() * availablePoints.length)]
-    this.cells[point.i][point.j] = value
-    return true 
+    this.cells[point.i][point.j] = value // add a cell
+    return true // the addition is 
 }
 
-
+ // drawing one cell
 Field.prototype.DrawCell = function(i, j) {
     let value = this.cells[i][j]
     let x = this.paddingHor + j * this.cellSize
