@@ -12,14 +12,14 @@ function Field(canvas, n = 4) {
     this.canvas.width = this.size + this.paddingHor * 2  //set the width of the picture
     this.canvas.height = this.size + this.paddingTop + this.paddingBottom // set the height of the picture
 
-    this.fieldColor = "#bdaca0" 
+    this.fieldColor = "#bdaca0" // field color
     this.colors = [ 
         "#cdc2b3", "#efe5da", "#ece0c8", "#f0b17d", "#f19867", "#f07e63",
         "#f46141", "#eacf78", "#edcd66", "#ecc75b", "#e8c256", "#e9be4c",
     ]
 
-    this.InitCells() 
-    this.AddCell(1) 
+    this.InitCells() // create cells
+    this.AddCell(1) // add a two
     this.AddCell(Math.random() < 0.75 ? 1 : 2) 
 
     this.score = 0 
@@ -30,7 +30,7 @@ function Field(canvas, n = 4) {
     })
 }
 
-
+// cell initialization
 Field.prototype.InitCells = function() {
     this.cells = []
 
@@ -42,7 +42,7 @@ Field.prototype.InitCells = function() {
     }
 }
 
-
+ // adding a new cell to the field
 Field.prototype.AddCell = function(value) {
     let availablePoints = [] // список пустых клеток
 
