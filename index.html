@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Image Puzzle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/image-puzzle.css" rel="stylesheet" />
+    <script src="js/image-puzzle.js"></script>
+    
+
+</head>
+
+<body id="backshow"">
+    <div id="collage">
+        <h2 style="color: blueviolet; font-size:xx-large;">Image Puzzle</h2>
+        <hr />
+        <div id="playPanel" style="padding:5px;display:none;">
+            <h3 id="imgTitle"></h3>
+            <hr />
+            <div style="display:inline-block; margin:auto; width:95%; vertical-align:top;">
+                <ul id="sortable" class="sortable"></ul>
+                <div id="actualImageBox">
+                    <div id="stepBox">
+                        <div>Steps:</div>
+                        <div id="stepCount" class="stepCount">0</div>
+                    </div>
+                    <div id="timeBox">
+                        Time Taken: <span id="timerPanel"></span> secs
+                    </div>
+                    <img id="actualImage" />
+                    <div>Re-arrange to create a picture like this.</div>
+                    <p id="levelPanel">
+                        <input type="radio" name="level" id="easy" checked="checked" value="3" onchange="imagePuzzle.startGame(images, this.value);"
+                        /> <label for="easy">Easy</label>
+                        <input type="radio" name="level" id="medium" value="4" onchange="imagePuzzle.startGame(images, this.value);" />                        <label for="medium">Medium</label>
+                        <input type="radio" name="level" id="hard" value="5" onchange="imagePuzzle.startGame(images, this.value);" />                        <label for="hard">Hard</label>
+                    </p>
+                    <div"> 
+                        <button style="background-color: blue; " id="btnRule" type="button" class="btn" onclick="rules();"><span>Rules </span></button>
+                        <button style="background-color: blue;" id="newPhoto" type="button" class="btn" onclick="restart();"><span>Another Photo</span></button>
+                        <button style="background-color: blue; " id="btnReplay" type="button" class="btn" onclick="about();"><span>About</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="gameOver" style="display:none;">
+            <div style="background-color: #fc9e9e; padding: 5px 10px 20px 10px; text-align: center; ">
+                <h2 style="text-align:center">Game Over!!</h2>
+                Congratulations!! <br /> You have completed this picture.
+                <br /> Steps: <span id="stepCount" class="stepCount">0</span> steps.
+                <br /> Time Taken: <span class="timeCount">0</span> seconds<br />
+                <div>
+                    <button type="button" onclick="window.location.reload(true);">Play Again</button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var images = [
+                { src: 'images/london-bridge.jpg', title: 'London Bridge' },
+                { src: 'images/lotus-temple.jpg', title: 'Lotus Temple' },
+                { src: 'images/qutub-minar.jpg', title: 'Qutub Minar' },
+                { src: 'images/statue-of-liberty.jpg', title: 'Statue Of Liberty' },
+                { src: 'images/taj-mahal.jpg', title: 'Taj Mahal' }
+            ];
+
+            window.onload = function () {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            };
+            function restart() {
+                var gridSize = document.querySelector('#levelPanel input[type="radio"]:checked').getAttribute('value');
+                imagePuzzle.startGame(images, gridSize);
+            }
+            function rules() {
+                alert('Re arrange the image parts in a way that it correctly forms the picture. \nThe no. of steps taken will be counted.');
+            }
+            function about() {
+                alert('Developed by Manoj Khedkar. \nHe can be contacted at: manojkumar3218030@gmail.com');
+            }
+        </script>
+    </div>
+    <footer style="text-align: center;
+    padding: 2px;
+   background-color: rgba(0, 0, 255, 0.158);
+    color: white;
+  ">
+        <p>Design : Manoj Kumar Khedkar &copy; 2021 manojkhedkar.com
+        </p>
+      </footer>
+</body>
+
+</html>
