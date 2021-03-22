@@ -7,10 +7,10 @@ function Field(canvas, n = 4) {
     this.size = this.cellSize * this.n  // field size
     this.paddingTop = 50 //number from above
     this.paddingBottom = 10 // bottom Margin
-    this.paddingHor = 10
+    this.paddingHor = 10 // sides on the sides
     
-    this.canvas.width = this.size + this.paddingHor * 2 
-    this.canvas.height = this.size + this.paddingTop + this.paddingBottom 
+    this.canvas.width = this.size + this.paddingHor * 2  //set the width of the picture
+    this.canvas.height = this.size + this.paddingTop + this.paddingBottom // set the height of the picture
 
     this.fieldColor = "#bdaca0" 
     this.colors = [ 
